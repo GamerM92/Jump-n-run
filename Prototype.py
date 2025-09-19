@@ -156,8 +156,12 @@ while game_aktiv:
         # Startbildschirm anzeigen
         font = pygame.font.Font(None, 74)
         title = start.render("Pixel Bros.", True, RED)
+        highscore = load_highscore()
+        highscorescreen = str(highscore)
+        startscore = score_font.render("Current Highscore: " + highscorescreen, True, YELLOW)
         start_text = score_font.render("Drücke 'R' zum Starten", True, YELLOW)  # Score Font verwenden
         window.blit(title, (window_width // 2 - title.get_width() // 2, 250))
+        window.blit(startscore, (window_width // 2 - startscore.get_width() // 2, 150))
         window.blit(start_text, (window_width // 2 - start_text.get_width() // 2, 350))
     elif not game_over:  # Nur spielen, wenn nicht Game Over und im Spielzustand "playing"
         # Tastensteuerung
